@@ -3,13 +3,18 @@ defmodule CryptirisWeb.Endpoint do
 
   socket "/socket", CryptirisWeb.UserSocket
 
+  plug Plug.Static.IndexHtml,
+    at: "/"
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :cryptiris, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    at: "/",
+    from: "priv/frontend/build/",
+    gzip: false,
+    only: ~w(index.html favicon.ico static)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -38,6 +43,7 @@ defmodule CryptirisWeb.Endpoint do
     key: "_cryptiris_key",
     signing_salt: "HMy6aWj4"
 
+  plug CORSPlug, origin: ["http://localhost:3000", "http://localhost:4000"]
   plug CryptirisWeb.Router
 
   @doc """

@@ -10,9 +10,9 @@ config :cryptiris, CryptirisWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
-  check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  check_origin: false
+  # watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
+  #                   cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
 #
@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :cryptiris, Cryptiris.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "cryptiris",
+  password: "she1aid0Ei",
   database: "cryptiris_dev",
   hostname: "localhost",
   pool_size: 10

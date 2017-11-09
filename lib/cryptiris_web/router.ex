@@ -15,8 +15,6 @@ defmodule CryptirisWeb.Router do
 
   scope "/", CryptirisWeb do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
