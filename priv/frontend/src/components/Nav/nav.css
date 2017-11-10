@@ -14,5 +14,9 @@ nav .btn {
 }
 
 .nav-container > * {
-    margin: 1rem;
+    margin: 0 1rem;
+}
+
+.nav-logo {
+    height: 128px;
 }
