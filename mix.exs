@@ -42,6 +42,7 @@ defmodule Cryptiris.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:plug_static_index_html, "~> 0.1.2"},
+      {:httpotion, "~> 3.0.2"},
       {:cors_plug, "~> 1.2"}
 
     ]

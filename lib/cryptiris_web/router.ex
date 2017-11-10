@@ -17,8 +17,8 @@ defmodule CryptirisWeb.Router do
     pipe_through :browser # Use the default browser stack
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", CryptirisWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CryptirisWeb do
+    pipe_through :api
+    resources "/exchanges", ExchangeController, except: [:new, :edit]
+  end
 end
