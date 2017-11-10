@@ -1,0 +1,18 @@
+nav .btn {
+    border-color: white;
+    color: white;
+}
+
+.nav-bg {
+    background-color: #1D3557;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-container > * {
+    margin: 1rem;
+}
