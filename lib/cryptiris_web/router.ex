@@ -20,5 +20,6 @@ defmodule CryptirisWeb.Router do
   scope "/api", CryptirisWeb do
     pipe_through :api
     resources "/exchanges", ExchangeController, except: [:new, :edit]
+    resources "/users", UserController, except: [:index, :new, :edit]
   end
 end
