@@ -1,6 +1,8 @@
 defmodule CryptirisWeb.UserController do
   use CryptirisWeb, :controller
   alias Cryptiris.Accounts
+  
+  action_fallback CryptirisWeb.FallbackController
 
   def show(conn, %{"id" => id}) do
     user = Accounts.get_user!(id)
