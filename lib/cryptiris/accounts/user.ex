@@ -16,7 +16,7 @@ defmodule Cryptiris.Accounts.User do
 
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :username, :password, :password_confirmation])
+    |> cast(attrs, [:email, :password, :password_confirmation])
     |> validate_confirmation(:password)
     |> validate_password(:password)
     |> put_pass_hash()
