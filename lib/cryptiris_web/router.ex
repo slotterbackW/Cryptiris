@@ -1,5 +1,6 @@
 defmodule CryptirisWeb.Router do
   use CryptirisWeb, :router
+  import CryptirisWeb.Plugs
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -11,6 +12,8 @@ defmodule CryptirisWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_user
   end
 
   scope "/", CryptirisWeb do
@@ -19,7 +22,11 @@ defmodule CryptirisWeb.Router do
 
   scope "/api", CryptirisWeb do
     pipe_through :api
+
     resources "/exchanges", ExchangeController, only: [:show, :index]
     resources "/users", UserController, except: [:index, :new, :edit]
+
+    post "/login", SessionController, :login
+    delete "/logout", SessionController, :logout
   end
 end

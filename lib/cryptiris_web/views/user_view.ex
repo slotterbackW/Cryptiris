@@ -2,7 +2,7 @@ defmodule CryptirisWeb.UserView do
   use CryptirisWeb, :view
 
   def render("show.json", %{user: user}) do
-    %{data: render_one(user, ExchangeView, "user.json")}
+    %{data: render_one(user, UserView, "user.json")}
   end
 
   def render("user.json", %{user: user}) do
