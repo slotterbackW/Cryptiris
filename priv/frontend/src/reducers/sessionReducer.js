@@ -22,3 +22,5 @@ function sessions(state = initialState, action) {
 			return state
 	}
 }
+
+export default sessions

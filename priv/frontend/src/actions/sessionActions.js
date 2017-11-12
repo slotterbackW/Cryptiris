@@ -21,6 +21,8 @@ export function loginFailure(error) {
 export const LOGOUT_ATTEMPTING = 'LOGOUT_ATTEMPTING'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
+// Use these guys:
+
 export function login(username, password) {
 	return (dispatch) => {
 		dispatch({
