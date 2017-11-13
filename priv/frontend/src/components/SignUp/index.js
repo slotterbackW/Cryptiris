@@ -1,8 +1,8 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {Form, Field} from 'simple-react-form'
-import {PasswordField, EmailField} from '../FormComponents/TextFields'
+import { Form, Field } from 'simple-react-form'
+import { PasswordField, EmailField } from '../FormComponents/TextFields'
 import * as actions from '../../actions/userActions'
 
 class SignUp extends React.Component {
@@ -15,39 +15,39 @@ class SignUp extends React.Component {
 	state = {}
 
 	render() {
-			if (this.props.loading) {
+		if (this.props.loading) {
 			return (
-					    <div className="container">
-					        <h1>Sign Up</h1>
-					        <p> loading ... </p>
-					    </div>
-						)
+					<div className="container">
+						<h1>Sign Up</h1>
+						<p> loading ... </p>
+					</div>
+			)
 		} else if (this.props.error) {
 			return (
-							<div className="container">
-					        <h1>Sign Up</h1>
-					        <p>Error: {this.props.error.toString()} </p>
-					        <Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
-	          				<Field fieldName='email' label='Email' type={EmailField} />
-	          				<Field fieldName='password' label='Password' type={PasswordField} />
-	          				<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-	        				</Form>
-	        				<button onClick={() => this.refs.form.submit()}>Submit</button>
-					    </div>
-					   )
+					<div className="container">
+						<h1>Sign Up</h1>
+						<p>Error: {this.props.error.toString()} </p>
+						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
+						<Field fieldName='email' label='Email' type={EmailField} />
+						<Field fieldName='password' label='Password' type={PasswordField} />
+						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+						</Form>
+						<button onClick={() => this.refs.form.submit()}>Submit</button>
+					</div>
+			)
 		} else {
 			return (
-							<div className="container">
-					       <h1>Sign Up</h1>
-					        <Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
-	          				<Field fieldName='email' label='Email' type={EmailField} />
-	          				<Field fieldName='password' label='Password' type={PasswordField} />
-	          				<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-	        				</Form>
-	        				<button onClick={() => this.refs.form.submit()}>Submit</button>
-					    </div>
-					    )
-	}
+					<div className="container">
+						<h1>Sign Up</h1>
+						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
+						<Field fieldName='email' label='Email' type={EmailField} />
+						<Field fieldName='password' label='Password' type={PasswordField} />
+						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+						</Form>
+						<button onClick={() => this.refs.form.submit()}>Submit</button>
+					</div>
+			)
+		}
 	}
 }
 
