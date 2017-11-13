@@ -11,13 +11,13 @@ function sessions(state = initialState, action) {
 		case actions.LOGIN_ATTEMPTING:
 			return { ...state, loading: true}
 		case actions.LOGIN_SUCCESS:
-			return { ...state, loading: false, user = action.data}
+			return { ...state, loading: false, user: action.data}
 		case actions.LOGIN_FAILURE:
-			return { ...state, loading: false, error = action.error}
+			return { ...state, loading: false, error:  action.error}
 		case actions.LOGOUT_ATTEMPTING:
 			return { ...state, loading: true}
 		case actions.LOGOUT_SUCCESS:
-			return { ...state, loading: false, user = null}
+			return { ...state, loading: false, user: null}
 		default:
 			return state
 	}

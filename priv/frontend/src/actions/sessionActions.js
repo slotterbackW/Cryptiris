@@ -23,19 +23,14 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
 // Use these guys:
 
-export function login(username, password) {
+export function login(email, password) {
 	return (dispatch) => {
 		dispatch({
 			type: LOGIN_ATTEMPTING
 		})
-		return api.login(email, password).then((data) = > {
+		return api.login(email, password).then( (data) => {
 			dispatch(loginSuccess(data))
-		}).catch(error) {
-			dispatch({
-				type: LOGIN_FAILURE
-			})
-			throw error
-		}
+		}).catch((error) => dispatch(loginFailure(error)))
 	}
 }
 
@@ -44,10 +39,10 @@ export function logout() {
 		dispatch({
 			type: LOGOUT_ATTEMPTING
 		})
-	}
 	return api.logout().then(() => {
 		dispatch({
 			type: LOGOUT_SUCCESS
 		})
 	})
+}
 }

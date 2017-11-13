@@ -10,7 +10,9 @@ function createEndpoint(path) {
 
 async function request(path, options = { credentials: 'include' }) {
   let response = await fetch(path, options)
+  console.log(response)
   let data = await response.json()
+  console.log(data)
   return data
 }
 
@@ -33,21 +35,21 @@ const api = {
   // ---------- USERS -----------
 
   // Create a new user
-  createUser(email, password, passwordConfirmation) {
+  createUser(email, password, password_confirmation) {
     return request(createEndpoint('users'),
       createRequestOptions(POST, {
         user : {
           email,
           password,
-          password_confirmation: passwordConfirmation
+          password_confirmation
         }
       }))
-  }
+  },
 
   // Get a user
   getUser(id) {
     return request(createEndpoint('users/' + id))
-  }
+  },
 
   // update a user
   updateUser(id, email, password, passwordConfirmation) {
@@ -60,7 +62,7 @@ const api = {
           password_confirmation: passwordConfirmation
         }
       }))
-  }
+  },
 
   // Delete a user
   deleteUser(id) {
@@ -68,7 +70,7 @@ const api = {
       createRequestOptions(DELETE, {
         id
       }))
-  }
+  },
 
   // ---------- SESSIONS -----------
 
@@ -79,20 +81,20 @@ const api = {
         email,
         password
       }))
-  }
+  },
 
   // logout a user
   logout() {
     return request(createEndpoint('logout'),
       createRequestOptions(DELETE, {}))
-  }
+  },
 
   // ---------- CURRENCIES -----------
 
   // Get all exchanges rates to USD
   getExchangeRates() {
     return request(createEndpoint('exchanges'))
-  }
+  },
 
   // Get the exchange rate from USD to case-sensitive currency code
   getExchangeRate(currencyCode) {
