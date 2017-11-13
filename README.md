@@ -2,6 +2,12 @@
 
 To start your Phoenix server:
 
+On windows use the run command with:
+`cmd /K "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64`
+to open a shell with all the proper config to compile this project
+Source: https://github.com/riverrun/comeonin/wiki/Requirements 
+
+
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `cd assets && npm install`
