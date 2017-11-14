@@ -28,6 +28,9 @@ class SignUp extends React.Component {
 						<h1>Sign Up</h1>
 						<p>Error: {this.props.error.toString()} </p>
 						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
+							<Field fieldName='email' label='Email' type={EmailField} />
+							<Field fieldName='password' label='Password' type={PasswordField} />
+							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						<Field fieldName='email' label='Email' type={EmailField} />
 						<Field fieldName='password' label='Password' type={PasswordField} />
 						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
@@ -40,9 +43,12 @@ class SignUp extends React.Component {
 					<div className="container">
 						<h1>Sign Up</h1>
 						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
-						<Field fieldName='email' label='Email' type={EmailField} />
-						<Field fieldName='password' label='Password' type={PasswordField} />
-						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+							<Field fieldName='email' label='Email' type={EmailField} />
+							<Field fieldName='password' label='Password' type={PasswordField} />
+							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+              <Field fieldName='email' label='Email' type={EmailField} />
+              <Field fieldName='password' label='Password' type={PasswordField} />
+              <Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						</Form>
 						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
