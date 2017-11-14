@@ -31,6 +31,9 @@ class SignUp extends React.Component {
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+						<Field fieldName='email' label='Email' type={EmailField} />
+						<Field fieldName='password' label='Password' type={PasswordField} />
+						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						</Form>
 						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
@@ -43,6 +46,9 @@ class SignUp extends React.Component {
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+              <Field fieldName='email' label='Email' type={EmailField} />
+              <Field fieldName='password' label='Password' type={PasswordField} />
+              <Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						</Form>
 						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
