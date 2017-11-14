@@ -47,5 +47,5 @@ class Login extends React.Component {
 }
 
 export default connect(
-    (state) => state.user
+    (state) => state.session
 )(Login)
