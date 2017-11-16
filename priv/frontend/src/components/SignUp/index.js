@@ -28,26 +28,35 @@ class SignUp extends React.Component {
 			}
 			return (
 					<div className="container">
-						<h1>Sign Up</h1>
+						<div className="flex-center">
+							<h1>Sign Up</h1>
+						</div>
 						<p style={errorStyle}>There was an issue creating an account. Please try again! </p>
 						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+
+							<div className="flex-center">
+								<button onClick={() => this.refs.form.submit()} className="btn">Submit</button>
+							</div>
 						</Form>
-						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
 			)
 		} else {
 			return (
 					<div className="container">
-						<h1>Sign Up</h1>
+						<div className="flex-center">
+							<h1>Sign Up</h1>
+						</div>
 						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
+							<div className="flex-center">
+								<button onClick={() => this.refs.form.submit()} className="btn">Submit</button>
+							</div>
 						</Form>
-						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
 			)
 		}

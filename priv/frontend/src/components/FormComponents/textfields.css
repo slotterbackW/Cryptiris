@@ -1,0 +1,31 @@
+form {
+    background-color: #1D3557;
+    border: 1px solid #1D3557;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 5px 8px 10px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.form-group {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.control-label {
+    margin: 0.25rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 2px solid #A8DADC;
+    background: transparent;
+    color: white;
+    margin: 0.25rem 0;
+    font-size: 1.125rem;
+}
