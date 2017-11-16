@@ -180,7 +180,7 @@ p {
   white-space: nowrap;
   color: #A8DADC;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 400;
   -webkit-font-smoothing: subpixel-antialiased;
   box-sizing: border-box;
@@ -200,4 +200,10 @@ p {
 
 .btn-emphasis:hover {
   background-color: #E63946;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
