@@ -7,6 +7,7 @@ import Nav from '../Nav'
 import Home from '../Home'
 import Login from '../Login'
 import SignUp from '../SignUp'
+import Dashboard from '../Dashboard'
 
 const About = () => (<h1> About </h1>)
 
@@ -19,6 +20,7 @@ const App = () => (
       <Route exact path="/about" component={About} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp} />
+      <Route exact path="/dashboard" component={Dashboard} />
     </main>
   </div>
 )
