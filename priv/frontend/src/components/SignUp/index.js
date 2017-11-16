@@ -23,17 +23,17 @@ class SignUp extends React.Component {
 					</div>
 			)
 		} else if (this.props.error) {
+			const errorStyle = {
+				color: "red"
+			}
 			return (
 					<div className="container">
 						<h1>Sign Up</h1>
-						<p>Error: {this.props.error.toString()} </p>
+						<p style={errorStyle}>There was an issue creating an account. Please try again! </p>
 						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-						<Field fieldName='email' label='Email' type={EmailField} />
-						<Field fieldName='password' label='Password' type={PasswordField} />
-						<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						</Form>
 						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>
@@ -46,9 +46,6 @@ class SignUp extends React.Component {
 							<Field fieldName='email' label='Email' type={EmailField} />
 							<Field fieldName='password' label='Password' type={PasswordField} />
 							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-              <Field fieldName='email' label='Email' type={EmailField} />
-              <Field fieldName='password' label='Password' type={PasswordField} />
-              <Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
 						</Form>
 						<button onClick={() => this.refs.form.submit()}>Submit</button>
 					</div>

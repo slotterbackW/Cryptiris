@@ -10,10 +10,7 @@ function createEndpoint(path) {
 
 async function request(path, options = { credentials: 'include' }) {
   let response = await fetch(path, options)
-  console.log(response)
-  let data = await response.json()
-  console.log(data)
-  return data
+  return parseResponse(response)
 }
 
 function createRequestOptions(requestType, data) {
@@ -27,6 +24,15 @@ function createRequestOptions(requestType, data) {
     credentials: 'include',
     headers: headers,
     body: JSON.stringify(data),
+  }
+}
+
+async function parseResponse(response) {
+  let json = await response.json()
+  if (response.ok) {
+    return json
+  } else {
+    return Promise.reject(json)
   }
 }
 
