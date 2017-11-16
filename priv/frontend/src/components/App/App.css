@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Metropolis-Light';
+  src: local('Metropolis-Light'), url(../../fonts/Metropolis/Metropolis-Light.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'Metropolis-Regular';
+  src: local('Metropolis-Regular'), url(../../fonts/Metropolis/Metropolis-Regular.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'Metropolis-RegularItalic';
+  src: local('Metropolis-RegularItalic'), url(../../fonts/Metropolis/Metropolis-RegularItalic.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'Metropolis-Bold';
+  src: local('Metropolis-Bold'), url(../../fonts/Metropolis/Metropolis-Bold.otf) format('otf');
+}
+
 /* General styles and grid system: Adapted from simplegrid.io */
 html,
 body {
@@ -11,20 +31,23 @@ body {
 }
 
 * {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Metropolis-Regular', sans-serif;
   line-height: 1.5;
 }
 
 h1 {
   font-size: 2.5rem;
+  font-family: 'Metropolis-Bold', sans-serif;
 }
 
 h2 {
   font-size: 2rem;
+  font-family: 'Metropolis-Bold', sans-serif;
 }
 
 h3 {
   font-size: 1.375rem;
+  font-family: 'Metropolis-Bold', sans-serif;
 }
 
 h4 {
