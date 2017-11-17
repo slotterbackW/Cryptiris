@@ -4,8 +4,8 @@ defmodule CryptirisWeb.SessionController do
 
   action_fallback CryptirisWeb.FallbackController
 
-  def login(conn, %{"username" => username, "password" => password}) do
-    user = Accounts.get_and_auth_user(username, password)
+  def login(conn, %{"email" => email, "password" => password}) do
+    user = Accounts.get_and_auth_user(email, password)
 
     if user do
       conn
