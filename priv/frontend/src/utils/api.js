@@ -1,6 +1,6 @@
 const root = 'http://localhost:4000/api/' // change this in prod
 const POST = 'POST'     // CREATE
-const GET = 'GET'       // READ
+//const GET = 'GET'       // READ
 const PUT = 'PUT'       // UPDATE
 const DELETE = 'DELETE' // DELETE
 

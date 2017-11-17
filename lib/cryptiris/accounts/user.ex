@@ -21,6 +21,7 @@ defmodule Cryptiris.Accounts.User do
     |> validate_password(:password)
     |> put_pass_hash()
     |> validate_required([:email, :password_hash])
+    |> unique_constraint(:email)
   end
 
   def validate_password(changeset, field, options \\ []) do

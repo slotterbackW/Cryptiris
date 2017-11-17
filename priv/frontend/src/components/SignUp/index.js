@@ -1,65 +1,84 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Form, Field } from 'simple-react-form'
-import { PasswordField, EmailField } from '../FormComponents/TextFields'
 import * as actions from '../../actions/userActions'
+import Yup from 'yup';
+import Form from '../Forms'
 
-class SignUp extends React.Component {
- // ({loading, user, error}) => {
+const initialValues = {
+  email: '',
+  password: '',
+  password_confirmation: ''
+}
 
-	onSubmit = ({email, password, password_confirmation}) => {
-		this.props.dispatch(actions.createUser(email, password, password_confirmation))
+const title = "Sign Up"
+
+const schema = Yup.object().shape(
+  {
+    email: Yup.string().email('Invalid email address').required('Required'),
+    password: Yup.string().min(8,'Your pasword must be at least 8 characters long.').required('Required'),
+    password_confirmation: Yup.string().min(8, 'Your pasword must be at least 8 characters long.').required('Required')
+  })
+
+const renderFunc = ({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
+  <form onSubmit={handleSubmit}>
+  	<div className="form-group">  	
+  	<label className="control-label">Email</label>
+    <input
+      type="email"
+      name="email"
+      className="form-control"
+      onChange={handleChange}
+      onBlur={handleBlur}
+      value={values.email}
+    />
+    {touched.email && errors.email && <div>{errors.email}</div>}
+    </div>
+    <div className="form-group">
+    <label className="control-label">Password</label>
+    <input
+      type="password"
+      name="password"
+      className="form-control"
+      onChange={handleChange}
+      onBlur={handleBlur}
+      value={values.password}
+    />
+    {touched.password && errors.password && <div>{errors.password}</div>}
+    </div>
+    <div className="form-group">
+    <label className="control-label">Confirm Password</label>
+    <input
+      type="password"
+      name="password_confirmation"
+      className="form-control"
+      onChange={handleChange}
+      onBlur={handleBlur}
+      value={values.password_confirmation}
+    />
+    {touched.password_confirmation && errors.password_confirmation && <div>{errors.password_confirmation}</div>}
+    </div>
+    <div className="flex-center">
+    <button className="btn" type="submit" disabled={isSubmitting}>
+      Submit
+    </button>
+    </div>
+  </form>
+)
+
+const SignUp = (props) => {
+	const onSubmit = (values, { setSubmitting, setErrors } ) => {
+  	props.dispatch(actions.createUser(values.email, values.password, values.password_confirmation))
+ 	 	setSubmitting(false)
 	}
-
-	state = {}
-
-	render() {
-		if (this.props.loading) {
-			return (
-					<div className="container">
-						<h1>Sign Up</h1>
-						<p> loading ... </p>
-					</div>
-			)
-		} else if (this.props.error) {
-			const errorStyle = {
-				color: "red"
-			}
-			return (
-					<div className="container">
-						<div className="flex-center">
-							<h1>Sign Up</h1>
-						</div>
-						<p style={errorStyle}>There was an issue creating an account. Please try again! </p>
-						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
-							<Field fieldName='email' label='Email' type={EmailField} />
-							<Field fieldName='password' label='Password' type={PasswordField} />
-							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-
-							<div className="flex-center">
-								<button onClick={() => this.refs.form.submit()} className="btn">Submit</button>
-							</div>
-						</Form>
-					</div>
-			)
-		} else {
-			return (
-					<div className="container">
-						<div className="flex-center">
-							<h1>Sign Up</h1>
-						</div>
-						<Form ref='form' state={this.props.initialDoc} onSubmit={this.onSubmit}>
-							<Field fieldName='email' label='Email' type={EmailField} />
-							<Field fieldName='password' label='Password' type={PasswordField} />
-							<Field fieldName='password_confirmation' label='Confirm password' type={PasswordField} />
-							<div className="flex-center">
-								<button onClick={() => this.refs.form.submit()} className="btn">Submit</button>
-							</div>
-						</Form>
-					</div>
-			)
-		}
+	if (props.loading) {
+		return (<p>loading...</p>)
+	} else {
+		return (
+			<div className="container">
+				<Form title={title} error={props.error} initialValues={initialValues} schema={schema}
+									onSubmit={onSubmit} renderFunc={renderFunc} />
+			</div>
+		)
 	}
 }
 

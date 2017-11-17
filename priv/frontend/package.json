@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "formik": "^0.10.4",
     "react": "^16.1.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.0",
@@ -14,7 +15,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "simple-react-form": "^2.0.1"
+    "yup": "^0.23.0"
   },
   "scripts": {
     "start": "react-scripts start",
