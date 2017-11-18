@@ -1,0 +1,18 @@
+.graph-control-select-sm {
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.chart-container-sm {
+    display: flex;
+    flex-direction: row;
+}
+
+.chart-controls-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 1rem;
+}
