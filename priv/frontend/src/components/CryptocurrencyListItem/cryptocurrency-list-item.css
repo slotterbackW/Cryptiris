@@ -1,0 +1,51 @@
+.list-item-container {
+    padding: 1rem 2rem;
+    border: 1px solid #A8DADC;
+    margin: 1rem 0;
+}
+
+.list-item-container:hover {
+    border-color: #457B9D;
+    box-shadow: 5px 8px 10px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.list-item-logo {
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.list-item-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.list-item-header-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list-item-title {
+    margin: 0;
+}
+
+.list-item-price-title {
+    font-weight: bold;
+}
+
+.btn {
+    color: #457B9D;
+    border-color: #457B9D;
+}
+
+.green {
+    color: #2ECC71;
+}
+
+.red {
+    color: #E74C3C;
+}

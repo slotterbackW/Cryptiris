@@ -8,6 +8,7 @@ import Home from '../Home'
 import Login from '../Login'
 import SignUp from '../SignUp'
 import Dashboard from '../Dashboard'
+import Browse from '../Browse'
 
 const About = () => (<h1> About </h1>)
 
@@ -21,6 +22,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/sign-up" component={SignUp} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/browse" component={Browse} />
     </main>
   </div>
 )
