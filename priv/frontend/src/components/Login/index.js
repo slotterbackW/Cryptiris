@@ -20,33 +20,33 @@ const schema = Yup.object().shape(
 const renderFunc = ({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
   <form onSubmit={handleSubmit}>
     <div className="form-group">    
-    <label className="control-label">Email</label>
-    <input
-      type="email"
-      name="email"
-      className="form-control"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      value={values.email}
-    />
-    {touched.email && errors.email && <div>{errors.email}</div>}
+      <label className="control-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        className="form-control"
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.email}
+      />
+      {touched.email && errors.email && <div>{errors.email}</div>}
     </div>
     <div className="form-group">
-    <label className="control-label">Password</label>
-    <input
-      type="password"
-      name="password"
-      className="form-control"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      value={values.password}
-    />
-    {touched.password && errors.password && <div>{errors.password}</div>}
+      <label className="control-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        className="form-control"
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.password}
+      />
+      {touched.password && errors.password && <div>{errors.password}</div>}
     </div>
     <div className="flex-center">
-    <button className="btn" type="submit" disabled={isSubmitting}>
-      Submit
-    </button>
+      <button className="btn" type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
     </div>
   </form>
 )
