@@ -1,0 +1,12 @@
+.btn-graph {
+    color: #707b7c !important;
+    border-color: #707b7c !important;
+    min-width: 0;
+    padding: 0 1rem;
+    margin: 0 .5rem;
+}
+
+.btn-graph:hover {
+    color: white !important;
+    background-color: #707b7c !important;
+}
