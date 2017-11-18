@@ -199,7 +199,8 @@ p {
 }
 
 .btn-emphasis:hover {
-  background-color: #E63946;
+  background-color: #28B463;
+  color: white;
 }
 
 .flex-center {
