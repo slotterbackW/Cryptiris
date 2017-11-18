@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CryptocurrencyList from '../CryptocurrencyList'
+import MainNav from '../MainNav'
 
 // Static example data from https://www.cryptocompare.com/api/data/coinlist/
 const exampleData = {
@@ -66,9 +67,12 @@ const apiToListItems = (data) => (
 export default class Browse extends React.Component {
     render() {
         return (
-            <div className="container">
-                <h1>Browse Cryptocurrencies</h1>
-                <CryptocurrencyList items={apiToListItems(exampleData.Data)}/>
+            <div>
+                <MainNav />
+                <div className="container">
+                    <h1>Browse Cryptocurrencies</h1>
+                    <CryptocurrencyList items={apiToListItems(exampleData.Data)}/>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,70 @@
+.main-nav {
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: .5rem 2rem;
+}
+
+.nav-brand-img {
+    width: 3rem;
+}
+
+.nav-link-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-link {
+    color: white;
+    margin: 0 1rem;
+    padding: .5rem 0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Dropdown: probably want to seperate this out into a component
+*  at some point */
+.dropdown-title {
+    cursor: pointer;
+    display: flex;
+}
+
+.dropdown-items-container {
+    display: none;
+    position: absolute;
+}
+
+.dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+.show > .dropdown-items-container {
+    display: block;
+}
+
+.caret-up {
+    display: block;
+    padding: .5rem;
+    width: .5rem;
+}
+
+.show > .dropdown-title > .caret-up {
+    display: none;
+}
+
+.caret-down {
+    display: none;
+    padding: .5rem;
+    width: .5rem;
+}
+
+.show > .dropdown-title > .caret-down {
+    display: block;
+}
+
+

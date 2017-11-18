@@ -1,8 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../../actions/sessionActions'
 import Yup from 'yup';
+
+import * as actions from '../../actions/sessionActions'
+
 import Form from '../Forms'
+import TopNav from '../TopNav'
 
 const initialValues = {
   email: '',
@@ -60,10 +63,13 @@ const Login = (props) => {
         return (<p>loading...</p>)
     } else {
         return (
+          <div>
+            <TopNav />
             <div className="container">
                 <Form title={title} error={props.error} initialValues={initialValues} schema={schema}
                                     onSubmit={onSubmit} renderFunc={renderFunc} />
             </div>
+          </div>
         )
     }
 }

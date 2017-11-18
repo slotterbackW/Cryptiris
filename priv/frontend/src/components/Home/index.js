@@ -1,8 +1,13 @@
 import React from 'react'
 
+import TopNav from '../TopNav'
+
 const Home = () => (
-    <div className="container">
-        <h1>Home</h1>
+    <div>
+        <TopNav />
+        <div className="container">
+            <h1>Home</h1>
+        </div>
     </div>
 )
 

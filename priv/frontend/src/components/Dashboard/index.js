@@ -1,6 +1,8 @@
 import React from 'react'
 import { LineChart, Line, YAxis, XAxis } from 'recharts'
 
+import MainNav from '../MainNav'
+
 const btc = [
     {date: "10/24/2017", value: 5509.50},
     {date: "10/25/2017", value: 5720.00},
@@ -14,13 +16,16 @@ const btc = [
 export default class Dashboard extends React.Component {
     render() {
         return (
-            <div className="container">
-                <h1>Dashboard</h1>
-                <LineChart width={400} height={200} data={btc}>
-                    <Line type="monotone" dataKey="value" stroke="#f00" />
-                    <XAxis dataKey="date"/>
-                    <YAxis allowDecimals={false} type="number" domain={['dataMin - 200', 'dataMax + 200']} />
-                </LineChart>
+            <div>
+                <MainNav />
+                <div className="container">
+                    <h1>Dashboard</h1>
+                    <LineChart width={400} height={200} data={btc}>
+                        <Line type="monotone" dataKey="value" stroke="#f00" />
+                        <XAxis dataKey="date"/>
+                        <YAxis allowDecimals={false} type="number" domain={['dataMin - 200', 'dataMax + 200']} />
+                    </LineChart>
+                </div>
             </div>
         )
     }

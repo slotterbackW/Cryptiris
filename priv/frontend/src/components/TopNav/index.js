@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './nav.css'
 import Logo from '../../images/Logo_Vertical_White_128x128.png'
 
-const Nav = () => (
+const TopNav = () => (
     <nav className="nav-bg row">
         <div className="nav-container container">
             <Link to="/login" className="btn">Login</Link>
@@ -15,4 +15,4 @@ const Nav = () => (
     </nav>
 )
 
-export default Nav
+export default TopNav

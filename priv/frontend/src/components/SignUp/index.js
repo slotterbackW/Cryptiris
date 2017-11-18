@@ -1,8 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../../actions/userActions'
 import Yup from 'yup';
+
+import * as actions from '../../actions/userActions'
+
 import Form from '../Forms'
+import TopNav from '../TopNav'
 
 const initialValues = {
   email: '',
@@ -58,9 +61,9 @@ const renderFunc = ({values, errors, touched, handleChange, handleBlur, handleSu
     {touched.password_confirmation && errors.password_confirmation && <div>{errors.password_confirmation}</div>}
     </div>
     <div className="flex-center">
-    <button className="btn" type="submit" disabled={isSubmitting}>
-      Submit
-    </button>
+      <button className="btn" type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
     </div>
   </form>
 )
@@ -74,10 +77,13 @@ const SignUp = (props) => {
 		return (<p>loading...</p>)
 	} else {
 		return (
-			<div className="container">
-				<Form title={title} error={props.error} initialValues={initialValues} schema={schema}
-									onSubmit={onSubmit} renderFunc={renderFunc} />
-			</div>
+      <div>
+        <TopNav />
+        <div className="container">
+          <Form title={title} error={props.error} initialValues={initialValues} schema={schema}
+                    onSubmit={onSubmit} renderFunc={renderFunc} />
+        </div>
+      </div>
 		)
 	}
 }
