@@ -105,6 +105,12 @@ const api = {
   // Get the exchange rate from USD to case-sensitive currency code
   getExchangeRate(currencyCode) {
     return request(createEndpoint('exchanges/' + currencyCode))
+  },
+
+  // Get the exchange rate from USD to these cryptocurrencies over the last 5 days
+  // cryptoCodes : [String] i.e. ["BTC","ETH", ...] etc
+  getLastFiveDaysRate(cryptoCodes) {
+    return request(createEndpoint('historical_prices?crypto_currencies=' + cryptoCodes.join()))
   }
 
 }
