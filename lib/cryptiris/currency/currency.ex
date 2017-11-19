@@ -19,6 +19,13 @@ defmodule Cryptiris.Currency do
     result
   end
 
+  # dates is a list of iso strings
+  def getHistoricalPrices(from, to, dates) do
+    dates
+    |> Enum.map(fn(t) -> CryptoExchange.get("pricehistorical?fsym=" <> from <> "&tsyms=" <> to <> "&ts=" <> t).body end)
+    |> Enum.map(fn({:ok, result}) -> result["USD"] end)
+  end
+
   def list_crypto_currencies do
     Repo.all(CryptoCurrency)
   end

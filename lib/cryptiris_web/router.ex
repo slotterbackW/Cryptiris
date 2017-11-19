@@ -28,6 +28,7 @@ defmodule CryptirisWeb.Router do
     resources "/crypto_currencies", CryptoCurrencyController, only: [:show, :index]
 
     get "/prices", ExchangeController, :prices
+    get "/historical_prices", ExchangeController, :fiveDayPrices
     post "/login", SessionController, :login
     delete "/logout", SessionController, :logout
   end

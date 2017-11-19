@@ -19,4 +19,16 @@ defmodule CryptirisWeb.ExchangeController do
     prices = Currency.prices("USD", to)
     render(conn, "prices.json", prices: prices)
   end
+
+  def lastFiveDaysISO(date) do
+    [0, 86400, 172800, 259200, 345600]
+    |> Enum.map(fn(t) -> date - t end)
+    |> Enum.map(fn(t) -> Integer.to_string(t) end)
+  end
+
+  def fiveDayPrices(conn, %{"crypto_currencies" => to}) do
+    today = DateTime.utc_now |> DateTime.to_unix
+    prices = Currency.getHistoricalPrices("USD", to, lastFiveDaysISO(today))
+    render(conn, "prices.json", prices: prices)
+  end
 end
