@@ -15,8 +15,7 @@ defmodule Cryptiris.Currency do
   end
 
   def prices(from, to) do
-    names = Enum.join(Enum.map(to, fn (e) -> String.upcase(e) end), ",")
-    {:ok, result} = CryptoExchange.get("price?fsym=" <> from <> "&tsyms=" <> names).body
+    {:ok, result} = CryptoExchange.get("price?fsym=" <> from <> "&tsyms=" <> to).body
     result
   end
 

@@ -14,4 +14,9 @@ defmodule CryptirisWeb.ExchangeController do
     exchange = Currency.get_exchange("USD", name)
     render(conn, "show.json", exchange: exchange)
   end
+
+  def prices(conn, %{"crypto_currencies" => to}) do
+    prices = Currency.prices("USD", to)
+    render(conn, "prices.json", prices: prices)
+  end
 end

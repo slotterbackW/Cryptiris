@@ -13,4 +13,8 @@ defmodule CryptirisWeb.ExchangeView do
   def render("exchange.json", %{exchange: exchange}) do
     exchange
   end
+
+  def render("prices.json", %{prices: prices}) do
+    %{data: prices}
+  end
 end
