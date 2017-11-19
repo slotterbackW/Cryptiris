@@ -2,6 +2,10 @@ defmodule Cryptiris.Currency do
   alias Cryptiris.Currency.Exchange
   alias Cryptiris.Currency.CryptoExchange
   alias Cryptiris.Currency.CryptoCurrency
+  alias Cryptiris.Currency.Follow
+
+  import Ecto.Query, warn: false
+  alias Cryptiris.Repo
 
   def list_exchanges(base) do
     {:ok, result} = Exchange.get("/latest?base=" <> base).body
@@ -25,6 +29,8 @@ defmodule Cryptiris.Currency do
     |> Enum.map(fn(t) -> CryptoExchange.get("pricehistorical?fsym=" <> from <> "&tsyms=" <> to <> "&ts=" <> t).body end)
     |> Enum.map(fn({:ok, result}) -> result["USD"] end)
   end
+
+  # ------------------------------------
 
   def list_crypto_currencies do
     Repo.all(CryptoCurrency)
@@ -50,5 +56,38 @@ defmodule Cryptiris.Currency do
 
   def change_crypto_currency(%CryptoCurrency{} = crypto_currency) do
     CryptoCurrency.changeset(crypto_currency, %{})
+  end
+
+  #------------------------------------
+
+  def list_follows_by_user(id) do
+    query = from f in Follow, where: f.user_id == ^id, select: f.code
+    Repo.all(query)
+  end
+
+  def list_follows do
+    Repo.all(Follow)
+  end
+
+  def get_follow!(id), do: Repo.get!(Follow, id)
+
+  def create_follow(attrs \\ %{}) do
+    %Follow{}
+    |> Follow.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_follow(%Follow{} = follow, attrs) do
+    follow
+    |> Follow.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_follow(%Follow{} = follow) do
+    Repo.delete(follow)
+  end
+
+  def change_follow(%Follow{} = follow) do
+    Follow.changeset(follow, %{})
   end
 end
