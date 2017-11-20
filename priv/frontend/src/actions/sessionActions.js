@@ -1,4 +1,5 @@
 import api from '../utils/api'
+import { push } from 'react-router-redux'
 
 export const LOGIN_ATTEMPTING = 'LOGIN_ATTEMPTING'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -30,6 +31,7 @@ export function login(email, password) {
 		})
 		return api.login(email, password).then( (data) => {
 			dispatch(loginSuccess(data))
+			dispatch(push('/dashboard'))
 		}).catch((error) => dispatch(loginFailure(error)))
 	}
 }
@@ -43,6 +45,7 @@ export function logout() {
 		dispatch({
 			type: LOGOUT_SUCCESS
 		})
+		dispatch(push('/'))
 	})
 }
 }

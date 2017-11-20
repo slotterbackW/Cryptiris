@@ -29,6 +29,25 @@ export function getHistoricalPrices(cryptoCodes) {
 	}
 }
 
+export function loadHistoricalPrices() {
+	return async (dispatch) => {
+		dispatch({
+			type: GET_HISTORICAL_ATTEMPTING
+		})
+		try {
+			const codes = await api.getFollowedCodes()
+			dispatch(getFollowingSuccess(codes.data))
+			dispatch({
+			type: GET_HISTORICAL_ATTEMPTING
+			})
+			const fiveDays = await api.getLastFiveDaysRate(codes.data)
+			dispatch(getHistoricalSuccess(fiveDays.data))
+		} catch(error) {
+			return dispatch(getHistoricalFailure(error))
+		}
+	}
+}
+
 export const GET_FOLLOWING_ATTEMPTING = 'GET_FOLLOWING_ATTEMPTING'
 export const GET_FOLLOWING_SUCCESS = 'GET_FOLLOWING_SUCCESS'
 export const GET_FOLLOWING_FAILURE = 'GET_FOLLOWING_FAILURE'
@@ -99,7 +118,7 @@ export function follow(code) {
 		dispatch({
 			type: CREATE_FOLLOWING_ATTEMPTING
 		})
-		return api.follow(code, user_id).then( (data) => {
+		return api.follow(code).then( (data) => {
 			dispatch(createFollowingSuccess(code))
 		}).catch((error) => dispatch(createFollowingFailure(error)))
 	}
@@ -110,7 +129,7 @@ export function unfollow(code) {
 		dispatch({
 			type: DELETE_FOLLOWING_ATTEMPTING
 		})
-		return api.unfollow(id).then( (data) => {
+		return api.unfollow(code).then( (data) => {
 			dispatch(deleteFollowingSuccess(code))
 		}).catch((error) => dispatch(deleteFollowingFailure(error)))
 	}

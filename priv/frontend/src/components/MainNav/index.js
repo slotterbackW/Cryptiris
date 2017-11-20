@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Brand from '../../images/Logo_White_64x64.png'
 import CaretUp from '../../images/caret-up.png'
@@ -9,27 +10,22 @@ import './main-nav.css'
 
 const toggleDropdown = () => {
     const dropdown = document.querySelector('.dropdown')
-
-    if (dropdown.classList.contains('show')) {
-        dropdown.classList.remove('show');
-    } else {
-        dropdown.classList.add('show')
-    }
+    dropdown.classList.toggle('show')
 }
 
 const MainNav = (props) => (
     <div className="main-nav nav-bg">
-        <div className="nav-link-container">
+        <div className="container nav-link-container">
             <Link to="/dashboard">
                 <img src={Brand} alt="Cryptiris logo" className="nav-brand-img"/>
             </Link>
             <Link to="/dashboard" className="nav-link">Dashboard</Link>
-            <Link to="/browse" className="nav-link">Browse Cryptocurrencies</Link>
+            <Link to="/browse" className="nav-link">Browse</Link>
         </div>
         <div className="nav-link-container">
             <div className="dropdown" onClick={toggleDropdown}>
                 <span className="dropdown-title">
-                    User
+                    <span className="menu">menu</span>
                     <img className="caret-up" src={CaretUp} alt="caret-up"/>
                     <img className="caret-down" src={CaretDown} alt="caret-down"/>
                 </span>
@@ -45,4 +41,4 @@ const MainNav = (props) => (
     </div>
 )
 
-export default MainNav
+export default connect()(MainNav)

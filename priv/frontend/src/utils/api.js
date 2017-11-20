@@ -115,7 +115,7 @@ const api = {
 
   // Must be signed in
   getFollowedCodes() {
-    return request(createEndpoint('follows')
+    return request(createEndpoint('follows'))
   },
 
   follow(code) {

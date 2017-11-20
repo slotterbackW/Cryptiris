@@ -3,7 +3,7 @@ import * as actions from '../actions/currencyActions'
 const initialState = {
 	loading: false,
 	prices: null,
-	codes: null,
+	codes: [],
 	error: null,
 }
 
@@ -30,7 +30,7 @@ function currencies(state = initialState, action) {
 		case actions.DELETE_FOLLOWING_ATTEMPTING:
 			return {...state, loading: true}
 		case actions.DELETE_FOLLOWING_SUCCESS:
-			return {...state, loading: false, codes: state.codes.filter((e) => e != action.data)}
+			return {...state, loading: false, codes: state.codes.filter((e) => e !== action.data)}
 		case actions.DELETE_FOLLOWING_FAILURE:
 			return {...state, loading: false, error: action.error}
 		default:

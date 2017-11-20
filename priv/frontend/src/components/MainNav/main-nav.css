@@ -32,6 +32,10 @@
     display: flex;
 }
 
+.menu {
+    margin-top: 15px;
+}
+
 .dropdown-items-container {
     display: none;
     position: absolute;

@@ -1,4 +1,5 @@
 import api from '../utils/api'
+import { push } from 'react-router-redux'
 
 export const CREATE_USER_ATTEMPTING = 'CREATE_USER_ATTEMPTING'
 export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
@@ -81,6 +82,7 @@ export function createUser(email, password, password_confirmation) {
 		})
 		return api.createUser(email, password, password_confirmation).then((data) => {
 			dispatch(createUserSuccess(data))
+			dispatch(push('/dashboard'))
 		}).catch((error) => dispatch(createUserFailure(error)))
 	}
 }
