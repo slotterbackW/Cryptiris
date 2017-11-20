@@ -24,6 +24,7 @@ defmodule CryptirisWeb.Router do
     pipe_through :api
 
     resources "/users", UserController, except: [:index, :new, :edit]
+    resources "/follows", UserController, except: [:new, :edit]
     resources "/exchanges", ExchangeController, only: [:show, :index]
     resources "/crypto_currencies", CryptoCurrencyController, only: [:show, :index]
 

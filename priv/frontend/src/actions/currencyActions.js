@@ -28,3 +28,32 @@ export function getHistoricalPrices(cryptoCodes) {
 		}).catch((error) => dispatch(getHistoricalFailure(error)))
 	}
 }
+
+export const GET_FOLLOWING_ATTEMPTING = 'GET_FOLLOWING_ATTEMPTING'
+export const GET_FOLLOWING_SUCCESS = 'GET_FOLLOWING_SUCCESS'
+export const GET_FOLLOWING_FAILURE = 'GET_FOLLOWING_FAILURE'
+
+export function getFollowingSuccess(data) {
+	return {
+		type: GET_FOLLOWING_SUCCESS,
+		data
+	}
+}
+
+export function getFollowingFailure(error) {
+	return {
+		type: GET_FOLLOWING_FAILURE,
+		error
+	}
+}
+
+export function getFollowedCodes() {
+	return (dispatch) => {
+		dispatch({
+			type: GET_FOLLOWING_ATTEMPTING
+		})
+		return api.getFollowedCodes().then( (data) => {
+			dispatch(getFollowingSuccess(data))
+		}).catch((error) => dispatch(getFollowingFailure(error)))
+	}
+}

@@ -111,6 +111,11 @@ const api = {
   // cryptoCodes : [String] i.e. ["BTC","ETH", ...] etc
   getLastFiveDaysRate(cryptoCodes) {
     return request(createEndpoint('historical_prices?crypto_currencies=' + cryptoCodes.join()))
+  },
+
+  // Must be signed in
+  getFollowedCodes() {
+    return request(createEndpoint('follows')
   }
 
 }
