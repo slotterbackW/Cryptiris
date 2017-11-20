@@ -46,8 +46,8 @@ defmodule Cryptiris.Mixfile do
       {:comeonin, "~> 4.0"},
       {:earmark, "~> 1.2.2"},
       {:argon2_elixir, "~> 1.2"},
-      {:cors_plug, "~> 1.2"}
-
+      {:cors_plug, "~> 1.2"},
+      {:distillery, "~> 1.4"}
     ]
   end
 
