@@ -11,8 +11,8 @@ defmodule CryptirisWeb.FollowController do
     render(conn, "codes.json", codes: codes)
   end
 
-  def create(conn, %{"follow" => follow_params}) do
-    with {:ok, %Follow{} = follow} <- Currency.create_follow(follow_params) do
+  def create(conn, %{"code" => code}) do
+    with {:ok, %Follow{} = follow} <- Currency.create_follow(%{ "code" => code, "user_id" => conn.user.id}) do
       conn
       |> put_status(:created)
       |> render("show.json", follow: follow)
@@ -32,8 +32,8 @@ defmodule CryptirisWeb.FollowController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    follow = Currency.get_follow!(id)
+  def delete(conn, %{"code" => code}) do
+    follow = Currency.get_follow_by_code!(code, conn.user.id)
     with {:ok, %Follow{}} <- Currency.delete_follow(follow) do
       send_resp(conn, :no_content, "")
     end

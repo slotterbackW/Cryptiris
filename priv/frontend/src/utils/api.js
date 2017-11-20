@@ -116,6 +116,18 @@ const api = {
   // Must be signed in
   getFollowedCodes() {
     return request(createEndpoint('follows')
+  },
+
+  follow(code) {
+    return request(createEndpoint('follows'),
+      createRequestOptions(POST, {
+        code,
+      }))
+  },
+
+  unfollow(code) {
+    return request(createEndpoint('follows/' + code),
+      createRequestOptions(DELETE, {id:code}))
   }
 
 }

@@ -71,6 +71,10 @@ defmodule Cryptiris.Currency do
 
   def get_follow!(id), do: Repo.get!(Follow, id)
 
+  def get_follow_by_code!(code, id) do
+    Repo.get_by!(Follow, [code: code, user_id: id])
+  end
+
   def create_follow(attrs \\ %{}) do
     %Follow{}
     |> Follow.changeset(attrs)
