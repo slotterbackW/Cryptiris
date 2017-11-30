@@ -8,6 +8,7 @@ import Login from '../Login'
 import SignUp from '../SignUp'
 import Dashboard from '../Dashboard'
 import Browse from '../Browse'
+import Chat from '../Chat'
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <Route exact path="/sign-up" component={SignUp} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/browse" component={Browse} />
+      <Route path="/chat/:topic" component={Chat}/>
     </main>
   </div>
 )

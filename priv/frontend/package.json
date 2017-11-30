@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "formik": "^0.10.4",
+    "phoenix": "^1.3.0",
     "react": "^16.1.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.0",
