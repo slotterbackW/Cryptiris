@@ -5,6 +5,7 @@ import * as actions from '../../actions/currencyActions'
 
 import CryptocurrencyList from '../CryptocurrencyList'
 import MainNav from '../MainNav'
+import Spinner from '../Spinner'
 
 class Browse extends React.Component {
 
@@ -33,7 +34,7 @@ class Browse extends React.Component {
                     <MainNav />
                     <div className="container">
                         <h1>Browse Cryptocurrencies</h1>
-                        <p>Loading...</p>
+                        <Spinner />
                     </div>
                 </div>
             )

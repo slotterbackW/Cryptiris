@@ -57,23 +57,23 @@
 }
 
 .caret-up {
-    display: block;
+    display: none;
     padding: .5rem;
     width: .75rem;
 }
 
 .show > .dropdown-title > .caret-up {
-    display: none;
+    display: block;
 }
 
 .caret-down {
-    display: none;
+    display: block;
     padding: .5rem;
     width: .75rem;
 }
 
 .show > .dropdown-title > .caret-down {
-    display: block;
+    display: none;
 }
 
 

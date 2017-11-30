@@ -37,9 +37,21 @@
     font-weight: bold;
 }
 
+.btn-container {
+    display: flex;
+}
+
+.btn-container button {
+    margin-right: 1rem;
+}
+
 .btn {
     color: #457B9D;
     border-color: #457B9D;
+}
+
+.btn-red:hover {
+    background-color: #e74c3c;    
 }
 
 .green {

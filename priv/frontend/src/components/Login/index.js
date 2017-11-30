@@ -6,6 +6,7 @@ import * as actions from '../../actions/sessionActions'
 
 import Form from '../Forms'
 import TopNav from '../TopNav'
+import Spinner from '../Spinner'
 
 const initialValues = {
   email: '',
@@ -62,7 +63,7 @@ const Login = (props) => {
     if (props.loading) {
       return (
         <div className="container">
-          <p>loading...</p>
+          <Spinner />
         </div>
       )
     } else {

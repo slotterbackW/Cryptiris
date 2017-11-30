@@ -6,6 +6,7 @@ import * as actions from '../../actions/userActions'
 
 import Form from '../Forms'
 import TopNav from '../TopNav'
+import Spinner from '../Spinner'
 
 const initialValues = {
   email: '',
@@ -74,7 +75,11 @@ const SignUp = (props) => {
  	 	setSubmitting(false)
 	}
 	if (props.loading) {
-		return (<p>loading...</p>)
+		return (
+      <div className="container">
+        <Spinner />
+      </div>
+    )
 	} else {
 		return (
       <div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import MainNav from '../MainNav'
 import CryptocurrencyGraphLg from '../CryptocurrencyGraphLg'
+import Spinner from '../Spinner'
 import * as actions from '../../actions/currencyActions'
 //import CurrencyGraphSm from '../CurrencyGraphSm'
 
@@ -43,7 +44,7 @@ class Dashboard extends React.Component {
                 <MainNav />
                 <div className="container">
                     <h1>Dashboard</h1>
-                    <span>Loading ...</span>
+                    <Spinner />
                     {/*<div className="row">
                         <div className="col-7">
                             <CurrencyGraphSm />

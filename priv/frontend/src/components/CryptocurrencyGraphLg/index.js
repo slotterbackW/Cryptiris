@@ -22,14 +22,14 @@ const CryptocurrencyGraphLg = ({name, data}) => (
             <YAxis allowDecimals={false} type="number" domain={['dataMin - 200', 'dataMax + 200']} />
         </LineChart>
     </div>
-    <div className="flex-center">
+    {/*<div className="flex-center">
         <button className="btn-graph btn">1d</button>
         <button className="btn btn-graph">5d</button>
         <button className="btn btn-graph">1m</button>
         <button className="btn btn-graph">6m</button>
         <button className="btn btn-graph">1y</button>
         <button className="btn btn-graph">5y</button>
-    </div>
+    </div>*/}
 </div>
 )
 
