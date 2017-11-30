@@ -3,6 +3,7 @@ defmodule CryptirisWeb.UserSocket do
 
   ## Channels
   # channel "room:*", CryptirisWeb.RoomChannel
+  channel "chat:*", CryptirisWeb.ChatChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
