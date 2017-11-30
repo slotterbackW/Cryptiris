@@ -13,7 +13,10 @@ Source: https://github.com/riverrun/comeonin/wiki/Requirements
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Then navigate to `priv/frontend`, run `yarn` then `yarn build`
+then `yarn start`
+
+Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 

@@ -30,10 +30,11 @@
 .dropdown-title {
     cursor: pointer;
     display: flex;
+    align-items: center;
 }
 
 .menu {
-    margin-top: 15px;
+    font-weight: bold;
 }
 
 .dropdown-items-container {
@@ -54,7 +55,7 @@
 .caret-up {
     display: block;
     padding: .5rem;
-    width: .5rem;
+    width: .75rem;
 }
 
 .show > .dropdown-title > .caret-up {
@@ -64,7 +65,7 @@
 .caret-down {
     display: none;
     padding: .5rem;
-    width: .5rem;
+    width: .75rem;
 }
 
 .show > .dropdown-title > .caret-down {

@@ -25,7 +25,7 @@ const MainNav = (props) => (
         <div className="nav-link-container">
             <div className="dropdown" onClick={toggleDropdown}>
                 <span className="dropdown-title">
-                    <span className="menu">menu</span>
+                    <span className="menu">Menu</span>
                     <img className="caret-up" src={CaretUp} alt="caret-up"/>
                     <img className="caret-down" src={CaretDown} alt="caret-down"/>
                 </span>

@@ -20,13 +20,13 @@ class Dashboard extends React.Component {
         console.log("prices: "+prices)
         let result = []
         if(prices) {
-         for (let i = 0; i < prices.length; i++) {
-            const day = new Date(Date.now() - (86400000 * i))
-            result.push({
-                date: "" + day.getMonth() + "/" + day.getDate(),
-                value: Math.round((1/ prices[i].BTC) * 100) / 100 
-            })
-        }   
+            for (let i = 0; i < prices.length; i++) {
+                const day = new Date(Date.now() - (86400000 * i))
+                let date = "" + day.getMonth() + "/" + day.getDate()
+                console.log("prices[i]= ", prices[i])
+                let value = prices[i] !== null ? Math.round((1/ prices[i].BTC) * 100) / 100 : null
+                result.push({date, value})
+            }   
         }
         
         return result.reverse()
