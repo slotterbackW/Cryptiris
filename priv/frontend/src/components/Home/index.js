@@ -29,7 +29,7 @@ const Home = () => {
                     <div className="col-4">
                         <div className="information-card">
                             <div className="card-header">
-                                <img src={Money} className="card-icon"/>
+                                <img src={Money} className="card-icon" alt="Follow-icon"/>
                             </div>
                             <div className="card-body">
                                 <h4>Follow</h4>
@@ -40,7 +40,7 @@ const Home = () => {
                     <div className="col-4">
                         <div className="information-card">
                             <div className="card-header">
-                                <img src={Graph} className="card-icon"/>
+                                <img src={Graph} className="card-icon" alt="Track-icon"/>
                             </div>
                             <div className="card-body">
                                 <h4>Track</h4>
@@ -51,7 +51,7 @@ const Home = () => {
                     <div className="col-4">
                         <div className="information-card">
                             <div className="card-header">
-                                <img src={Talk} className="card-icon"/>
+                                <img src={Talk} className="card-icon" alt="Discuss-icon"/>
                             </div>
                             <div className="card-body">
                                 <h4>Discuss</h4>
