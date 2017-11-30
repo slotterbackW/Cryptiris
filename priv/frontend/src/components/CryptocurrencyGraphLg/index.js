@@ -17,9 +17,9 @@ const CryptocurrencyGraphLg = ({name, data}) => (
     <h2>{name}</h2>
     <div className=" chart-container">
         <LineChart width={700} height={350} data={data}>
-            <Line type="monotone" dataKey="value" stroke="#f00" />
+            <Line type="monotone" dataKey="value" stroke="#457B9D" />
             <XAxis dataKey="date"/>
-            <YAxis allowDecimals={false} type="number" domain={['dataMin - 200', 'dataMax + 200']} />
+            <YAxis allowDecimals={false} type="number" domain={['dataMin - 60', 'dataMax + 60']} />
         </LineChart>
     </div>
     {/*<div className="flex-center">

@@ -17,19 +17,36 @@ class Dashboard extends React.Component {
 //     {date: "10/28/2017", value: 5720.60},
 //     {date: "10/29/2017", value: 6156.00},
 //     {date: "10/30/2017", value: 6115.00}
+    getNames(prices) {
+
+    }
+
     massageData(prices) {
-        console.log("prices: "+prices)
+        console.log("prices: ", prices)
         let result = []
-        if(prices) {
+        if(prices && prices.length > 0) {
+            // Build each price object
+            for (let x = 0; x < Object.keys(prices[0]).length; x++) {
+                let name = Object.keys(prices[0])[x]
+                result.push({
+                    name,
+                    data: []
+                })
+            }
+
             for (let i = 0; i < prices.length; i++) {
-                const day = new Date(Date.now() - (86400000 * i))
-                let date = "" + day.getMonth() + "/" + day.getDate()
-                console.log("prices[i]= ", prices[i])
-                let value = prices[i] !== null ? Math.round((1/ prices[i].BTC) * 100) / 100 : null
-                result.push({date, value})
+                for (let j = 0; j < Object.keys(prices[i]).length; j++) {
+                    let symbol = Object.keys(prices[i])[j]
+
+                    let price = prices[i][symbol]
+
+                    const day = new Date(Date.now() - (86400000 * i))
+                    let date = "" + day.getMonth() + "/" + day.getDate()
+
+                    result.find(priceObj => priceObj.name === symbol ).data.push({date, value: price})
+                }
             }   
         }
-        
         return result.reverse()
     }
 
@@ -45,11 +62,6 @@ class Dashboard extends React.Component {
                 <div className="container">
                     <h1>Dashboard</h1>
                     <Spinner />
-                    {/*<div className="row">
-                        <div className="col-7">
-                            <CurrencyGraphSm />
-                        </div>
-                    </div>*/}
                 </div>
             </div>
             )  
@@ -60,7 +72,8 @@ class Dashboard extends React.Component {
                 <MainNav />
                 <div className="container">
                     <h1>Dashboard</h1>
-                    <CryptocurrencyGraphLg name={"BTC"} data={this.massageData(this.props.prices)}/>
+                    {this.massageData(this.props.prices).map(currencyData => 
+                    <CryptocurrencyGraphLg name={currencyData.name} data={currencyData.data} />)}
                     {/*<div className="row">
                         <div className="col-7">
                             <CurrencyGraphSm />
