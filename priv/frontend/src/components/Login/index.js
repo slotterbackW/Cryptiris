@@ -56,21 +56,25 @@ const renderFunc = ({values, errors, touched, handleChange, handleBlur, handleSu
 
 const Login = (props) => {
     const onSubmit = (values, { setSubmitting, setErrors } ) => {
-    props.dispatch(actions.login(values.email, values.password))
-        setSubmitting(false)
+      props.dispatch(actions.login(values.email, values.password))
+      setSubmitting(false)
     }
     if (props.loading) {
-        return (<p>loading...</p>)
+      return (
+        <div className="container">
+          <p>loading...</p>
+        </div>
+      )
     } else {
-        return (
-          <div>
-            <TopNav />
-            <div className="container">
-                <Form title={title} error={props.error} initialValues={initialValues} schema={schema}
-                                    onSubmit={onSubmit} renderFunc={renderFunc} />
-            </div>
+      return (
+        <div>
+          <TopNav />
+          <div className="container">
+              <Form title={title} error={props.error} initialValues={initialValues} schema={schema}
+                                  onSubmit={onSubmit} renderFunc={renderFunc} />
           </div>
-        )
+        </div>
+      )
     }
 }
 

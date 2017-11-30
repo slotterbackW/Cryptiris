@@ -48,6 +48,10 @@
     padding: 1rem;
 }
 
+.dropdown-list-item {
+    cursor: pointer;
+}
+
 .show > .dropdown-items-container {
     display: block;
 }
