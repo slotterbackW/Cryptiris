@@ -5,7 +5,7 @@ defmodule Cryptiris.Social do
 
   def create_message(attrs \\ %{}) do
     %Message{}
-    |> User.changeset(attrs)
+    |> Message.changeset(attrs)
     |> Repo.insert()
   end
 end
