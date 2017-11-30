@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import * as actions from '../../actions/sessionActions'
+
 import Brand from '../../images/Logo_White_64x64.png'
 import CaretUp from '../../images/caret-up.png'
 import CaretDown from '../../images/caret-down.png'
@@ -33,7 +35,7 @@ const MainNav = (props) => (
                     <ul className="dropdown-list">
                         <li className="dropdown-list-item">Profile</li>
                         <hr/>
-                        <li className="dropdown-list-item">Log Out</li>
+                        <li className="dropdown-list-item" onClick={actions.logout()}>Log Out</li>
                     </ul>
                 </div>
             </div>

@@ -9,6 +9,12 @@ const initialState = {
 
 function currencies(state = initialState, action) {
 	switch (action.type) {
+		case actions.GET_CRYPTOCURRENCIES_ATTEMPTING:
+			return {...state, loading: true}
+		case actions.GET_CRYPTOCURRENCIES_SUCCESS:
+			return {...state, loading: false, cryptocurrencies: action.data}
+		case actions.GET_CRYPTOCURRENCIES_FAILURE:
+			return {...state, loading: false, error: action.error}
 		case actions.GET_HISTORICAL_ATTEMPTING:
 			return {...state, loading: true}
 		case actions.GET_HISTORICAL_SUCCESS:

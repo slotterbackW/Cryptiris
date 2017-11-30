@@ -26,8 +26,8 @@ defmodule CryptirisWeb.Router do
     resources "/users", UserController, except: [:index, :new, :edit]
     resources "/follows", FollowController, except: [:new, :edit]
     resources "/exchanges", ExchangeController, only: [:show, :index]
-    resources "/crypto_currencies", CryptoCurrencyController, only: [:show, :index]
 
+    get "/crypto_currencies", CryptoCurrencyController, :crypto_currencies
     get "/prices", ExchangeController, :prices
     get "/historical_prices", ExchangeController, :fiveDayPrices
     post "/login", SessionController, :login
