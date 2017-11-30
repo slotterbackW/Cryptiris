@@ -15,6 +15,7 @@ class Browse extends React.Component {
                 {
                     name: data[dataKey].FullName,
                     imageUrl: `https://www.cryptocompare.com${data[dataKey].ImageUrl}`,
+                    symbol: data[dataKey].Symbol,
                     price: "TODO" // Temporary. This is returned from a seperate endpoint. Docs here: https://min-api.cryptocompare.com/
                 }
             ))
