@@ -1,21 +1,11 @@
 defmodule Cryptiris.Currency.CryptoCurrency do
-  use Ecto.Schema
-  import Ecto.Changeset
-  alias Cryptiris.Currency.CryptoCurrency
-
-
-  schema "crypto_currencies" do
-    field :desc, :string
-    field :name, :string
-    field :price, :decimal
-
-    timestamps()
+  use HTTPotion.Base
+  
+  def process_url(url) do
+    "https://min-api.cryptocompare.com/data/" <> url
   end
 
-  @doc false
-  def changeset(%CryptoCurrency{} = crypto_currency, attrs) do
-    crypto_currency
-    |> cast(attrs, [:name, :desc, :price])
-    |> validate_required([:name, :desc, :price])
+  def process_response_body(body) do
+    Poison.decode body
   end
 end

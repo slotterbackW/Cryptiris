@@ -97,6 +97,11 @@ const api = {
 
   // ---------- CURRENCIES -----------
 
+  // Get all currencies available
+  getCryptocurrencies() {
+    return request(createEndpoint('crypto_currencies'))
+  },
+
   // Get all exchanges rates to USD
   getExchangeRates() {
     return request(createEndpoint('exchanges'))

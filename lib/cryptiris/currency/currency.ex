@@ -7,6 +7,17 @@ defmodule Cryptiris.Currency do
   import Ecto.Query, warn: false
   alias Cryptiris.Repo
 
+  def list_crypto_currencies() do
+    {:ok, result} = CryptoCurrency.get("all/coinlist").body
+    result["Data"]
+  end
+
+  def get_crypto_currency(base, name) do
+    # TODO
+    {:ok, result} = CryptoCurrency.get(base <> name)
+    result
+  end
+
   def list_exchanges(base) do
     {:ok, result} = Exchange.get("/latest?base=" <> base).body
     result["rates"]
@@ -28,34 +39,6 @@ defmodule Cryptiris.Currency do
     dates
     |> Enum.map(fn(t) -> CryptoExchange.get("pricehistorical?fsym=" <> from <> "&tsyms=" <> to <> "&ts=" <> t).body end)
     |> Enum.map(fn({:ok, result}) -> result["USD"] end)
-  end
-
-  # ------------------------------------
-
-  def list_crypto_currencies do
-    Repo.all(CryptoCurrency)
-  end
-
-  def get_crypto_currency!(id), do: Repo.get!(CryptoCurrency, id)
-
-  def create_crypto_currency(attrs \\ %{}) do
-    %CryptoCurrency{}
-    |> CryptoCurrency.changeset(attrs)
-    |> Repo.insert()
-  end
-
-  def update_crypto_currency(%CryptoCurrency{} = crypto_currency, attrs) do
-    crypto_currency
-    |> CryptoCurrency.changeset(attrs)
-    |> Repo.update()
-  end
-
-  def delete_crypto_currency(%CryptoCurrency{} = crypto_currency) do
-    Repo.delete(crypto_currency)
-  end
-
-  def change_crypto_currency(%CryptoCurrency{} = crypto_currency) do
-    CryptoCurrency.changeset(crypto_currency, %{})
   end
 
   #------------------------------------

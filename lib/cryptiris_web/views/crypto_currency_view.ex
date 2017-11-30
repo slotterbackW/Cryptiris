@@ -10,10 +10,7 @@ defmodule CryptirisWeb.CryptoCurrencyView do
     %{data: render_one(crypto_currency, CryptoCurrencyView, "crypto_currency.json")}
   end
 
-  def render("crypto_currency.json", %{crypto_currency: crypto_currency}) do
-    %{id: crypto_currency.id,
-      name: crypto_currency.name,
-      desc: crypto_currency.desc,
-      price: crypto_currency.price}
+  def render("crypto_currencies.json", %{crypto_currencies: crypto_currencies}) do
+    %{data: crypto_currencies}
   end
 end

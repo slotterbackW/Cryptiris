@@ -1,5 +1,37 @@
 import api from '../utils/api'
 
+export const GET_CRYPTOCURRENCIES_ATTEMPTING = 'GET_CRYPTOCURRENCIES_ATTEMPTING'
+export const GET_CRYPTOCURRENCIES_SUCCESS = 'GET_CRYPTOCURRENCIES_SUCCESS'
+export const GET_CRYPTOCURRENCIES_FAILURE = 'GET_CRYPTOCURRENCIES_FAILURE'
+
+export function getCryptocurrenciesSuccess(data) {
+	return {
+		type: GET_CRYPTOCURRENCIES_SUCCESS,
+		data
+	}
+}
+
+export function getCryptocurrenciesFailure(data) {
+	return {
+		type: GET_CRYPTOCURRENCIES_FAILURE,
+		data
+	}
+}
+
+export function getCryptocurrencies() {
+	return (dispatch) => {
+		dispatch({
+			type: GET_CRYPTOCURRENCIES_ATTEMPTING
+		})
+		return api.getCryptocurrencies()
+		.then(data => {
+			dispatch(getCryptocurrenciesSuccess(data))
+		}).catch(error => {
+			return dispatch(getCryptocurrenciesFailure(error))
+		})
+	}
+}
+
 export const GET_HISTORICAL_ATTEMPTING = 'GET_HISTORICAL_ATTEMPTING'
 export const GET_HISTORICAL_SUCCESS = 'GET_HISTORICAL_SUCCESS'
 export const GET_HISTORICAL_FAILURE = 'GET_HISTORICAL_FAILURE'

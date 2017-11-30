@@ -17,7 +17,7 @@ const CryptocurrencyListItem = (props) => (
             </div>
             
         </div>
-        <button onClick={() => props.dispatch(actions.follow("BTC"))} className="btn btn-emphasis">Follow</button>
+        <button onClick={() => props.dispatch(actions.follow(props.item.name))} className="btn btn-emphasis">Follow</button>
     </div>
 )
 
