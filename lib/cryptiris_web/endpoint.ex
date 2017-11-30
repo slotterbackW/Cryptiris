@@ -43,7 +43,7 @@ defmodule CryptirisWeb.Endpoint do
     key: "_cryptiris_key",
     signing_salt: "HMy6aWj4"
 
-  plug CORSPlug, origin: ["http://localhost:3000", "http://localhost:4000"]
+  plug CORSPlug, origin: ["http://localhost:3000", "http://localhost:4000", "http://cryptiris.cs4550.fun"]
   plug CryptirisWeb.Router
 
   @doc """
