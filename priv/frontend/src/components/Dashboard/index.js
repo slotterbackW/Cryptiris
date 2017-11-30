@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
     massageData(prices) {
         console.log("prices: ", prices)
         let result = []
-        if(prices && prices.length > 0) {
+        if(prices && prices.length > 0 && prices[0]) {
             // Build each price object
             for (let x = 0; x < Object.keys(prices[0]).length; x++) {
                 let name = Object.keys(prices[0])[x]
@@ -38,7 +38,7 @@ class Dashboard extends React.Component {
                 for (let j = 0; j < Object.keys(prices[i]).length; j++) {
                     let symbol = Object.keys(prices[i])[j]
 
-                    let price = prices[i][symbol]
+                    let price = Math.round((1/ prices[i][symbol]) * 100) / 100
 
                     const day = new Date(Date.now() - (86400000 * i))
                     let date = "" + day.getMonth() + "/" + day.getDate()

@@ -1,4 +1,5 @@
 import api from '../utils/api'
+import { push } from 'react-router-redux'
 
 export const GET_CRYPTOCURRENCIES_ATTEMPTING = 'GET_CRYPTOCURRENCIES_ATTEMPTING'
 export const GET_CRYPTOCURRENCIES_SUCCESS = 'GET_CRYPTOCURRENCIES_SUCCESS'
@@ -152,6 +153,7 @@ export function follow(code) {
 		})
 		return api.follow(code).then( (data) => {
 			dispatch(createFollowingSuccess(code))
+			dispatch(push('/dashboard'))
 		}).catch((error) => dispatch(createFollowingFailure(error)))
 	}
 }
@@ -163,6 +165,11 @@ export function unfollow(code) {
 		})
 		return api.unfollow(code).then( (data) => {
 			dispatch(deleteFollowingSuccess(code))
+			dispatch(push('/dashboard'))
 		}).catch((error) => dispatch(deleteFollowingFailure(error)))
 	}
+}
+
+export function chat(code) {
+	return (dispatch) => { dispatch(push('/chat/' + code)) }
 }
