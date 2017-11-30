@@ -14,7 +14,7 @@ function channel(state = initialState, action) {
 		case "JOIN_SUCCESS":
 			return {...state, loading: false, channel: action.channel}
 		case "NEW_MESSAGE":
-			return {...state, messages: state.messages.push(action.message)}
+			return {...state, messages: state.messages.concat(action.message)}
 		default:
 			return state
 	}

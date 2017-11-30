@@ -18,10 +18,10 @@ export function joinChannel(topic) {
 	    })
 
 	  channel.on('new', payload => {
+	  	console.log(payload.message)
 	    dispatch({type: "NEW_MESSAGE", message: payload.message})
 	  })
 	}
- 
 }
 
 export function addMessage(channel, text) {
